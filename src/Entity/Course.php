@@ -37,6 +37,11 @@ class Course
      */
     private $teacher;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $is_booked;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -86,6 +91,18 @@ class Course
     public function setTeacher(?Teacher $teacher): self
     {
         $this->teacher = $teacher;
+
+        return $this;
+    }
+
+    public function getIsBooked(): ?bool
+    {
+        return $this->is_booked;
+    }
+
+    public function setIsBooked(bool $is_booked): self
+    {
+        $this->is_booked = $is_booked;
 
         return $this;
     }
