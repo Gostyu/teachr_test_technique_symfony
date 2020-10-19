@@ -11,44 +11,49 @@ class TeachrAppFixtures extends Fixture
 {
 
     public function load(ObjectManager $manager)
-    {
-        $faker = Faker\Factory::create('fr_FR'); 
-        
+    {        
         // $product = new Product();
         // $manager->persist($product);
-        createCourses($faker,$manager);
+        $this->createCourses($manager);
         $manager->flush();
     }
 
-    private function createStudents(Faker $faker,Course $course, ObjectManager $manager){
+    private function createStudents(Course $course, ObjectManager $manager){
+        $faker = \Faker\Factory::create('fr_FR'); 
         for($i=0; $i<6; $i++){
             $student = new Student();
             $student->setFirstName($faker->firstname)
-                ->setLastName($faker->lastname)
-                ->addCourses($course->getIsBooked() ? $course : null);
+                ->setLastName($faker->lastname);
+                if($course->getIsBooked() && $i%3==0){
+                     $student->addCourse($course);
+                }
                 $manager->persist($student);
             }
     }
-    private function createCourses(Faker $faker,ObjectManager $manager){
+    public function createCourses(ObjectManager $manager){
         $areas = ["cours de mathématiques", "cours de français","cours de philosophie"
         ,"cours d'histoire","cours de sport","cours d'anglais","cours d'espagnol"];
-        for($i=0; $i<$count($cours); $i++){
+        for($i=0; $i<count($areas); $i++){
             $course = new Course();
             $course->setName($areas[$i])
-            ->setStartingDay($faker->dateTimeBetween("+7 days"))
-            ->isBooked($i%2 == 0);
-            createStudents($faker,$course);
-            createTeachers($faker,$course);
+            ->setStartingDay(new \DateTime())
+            ->setIsBooked($i%2 == 0);
+            $manager->persist($course);
+            $this->createStudents($course,$manager);
+            $this->createTeachers($course,$manager);
+
         }
 
     }
-    private function createTeachers(Faker $faker, Course $course, ObjectManager $manager){
+    private function createTeachers(Course $course, ObjectManager $manager){
+        $faker = \Faker\Factory::create('fr_FR'); 
         for($i=0; $i<6; $i++){
             $teacher = new Teacher();
             $teacher->setFirstName($faker->firstname)
                 ->setLastName($faker->lastname)
-                ->addCourse(mt_rand(0,6)<mt_rand(0,6)? $course:null);
-            $manager->persist($student);
+                ->addCourse($course);
+            $manager->persist($teacher);
         }
     }
+
 }
