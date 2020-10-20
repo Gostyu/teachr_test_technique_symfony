@@ -20,10 +20,11 @@ class StudentController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function home(CourseRepository $repo){
-        $courses = $repo->findBy(array("is_booked"=>false));
-    
-        return $this->render('student/home.html.twig',['courses'=>$courses]);
+    public function home(CourseRepository $courseRepo,StudentRepository $studentRepo){
+        $courses = $courseRepo->findBy(array("is_booked"=>false));
+        $student = $studentRepo->findOneByFirstname("Thomas");
+        $course = $student->getCourses()->current();
+        return $this->render('student/home.html.twig',['courses'=>$courses,'name'=>$student->getFirstname(),'next_course'=>$course]);
     }
 
     /**
@@ -31,8 +32,7 @@ class StudentController extends AbstractController
      */
     public function myCourses(StudentRepository $repo){
         $student=$repo->findOneByFirstname("Thomas");
-        $courses = $student->getCourses();
-        return $this->render('student/myCourses.html.twig',['courses'=>$courses]);
+        return $this->render('student/myCourses.html.twig',['courses'=>$student->getCourses()]);
     }
     /**
      * @Route("/mon_profil", name="mon_profil")
