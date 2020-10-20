@@ -1,7 +1,31 @@
 body {
-    background-color: lightgray;
+    background-color: rgb(250, 248, 248);
 }
 .schoolbag,.calendar,.clock,.teacher{
     width :34px;
     height:34px;
+}
+.card-body{
+    -webkit-box-shadow: 0px 3px 12px 4px rgba(207,205,207,1);
+    -moz-box-shadow: 0px 3px 12px 4px rgba(207,205,207,1);
+    box-shadow: 0px 3px 12px 4px rgba(207,205,207,1);    
+}
+.btn--backgroundcolor{
+    background-color: #caf0f8;
+}
+.btn--textcolor{
+    color:#00b4d8;
+}
+.btn--textcolor:hover{
+    color:#48cae4;
+}
+.navbar{
+    border : 1px solid rgb(170, 170, 170);
+    border-radius: 10px;
+    padding: 0;
+}
+
+.navbar .nav-item.active {
+    background-color: lightgray;
+    font-weight: 500;
 }

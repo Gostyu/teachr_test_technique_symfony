@@ -2,12 +2,12 @@
 {% block body %}
 	<div class="row">
 		<div class="col">
-			<h1>Home</h1>
+			<h1 class="text-center">{{"Prochain cours : Lundi 23 décembre "}}</h1>
 			<div class="card-deck">
 				{% for course in courses %}
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">{{course.name}}</h5>
+							<h5 class="card-title font-weight-bold">{{course.name}}</h5>
 							<h6 class="card-subtitle text-muted">
 								Prochain cours : {% if date(course.startingDay)|date("d-m-Y") == date()|date("d-m-Y") %}
 									{{"Aujourd'hui"}}
@@ -15,24 +15,36 @@
 									le {{date(course.startingDay)|date("d-m-Y")}}
 								{% endif %}
 							</h6>
-                            <section class="card-body">
+                            <section class="section my-4">
                                  <img class="schoolbag" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNjQgNjQiIGhlaWdodD0iNTEyIiB2aWV3Qm94PSIwIDAgNjQgNjQiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PGc+PHBhdGggZD0ibTUxIDQxdi0zMWMwLTIuMjA5LTEuNzkxLTQtNC00aDZjMi4yMDkgMCA0IDEuNzkxIDQgNHYzMWMwIDEuNjU3LTEuMzQzIDMtMyAzLTEuNjU3IDAtMy0xLjM0My0zLTN6IiBmaWxsPSIjMzUzNzQ0Ii8+PC9nPjxwYXRoIGQ9Im01NiA0NGgtMmMtLjM1MyAwLS42ODYtLjA3Mi0xLS4xODR2NC4xODRjMCAyLjk1My0xLjYxMyA1LjUzMi00IDYuOTE3djEuMDgzYzAgMi4yMDktMS43OTEgNC00IDQgNi42MTcgMCAxMi01LjM4MyAxMi0xMnYtNC4xODRjLS4zMTQuMTEyLS42NDcuMTg0LTEgLjE4NHoiIGZpbGw9IiM4MDgwODAiLz48Zz48cGF0aCBkPSJtNTMgNGMtMy4zMTQgMC02IDIuNjg2LTYgNnYxNGgydi0xNGMwLTIuMjA5IDEuNzkxLTQgNC00czQgMS43OTEgNCA0djMxYzAgMS42NTctMS4zNDMgMy0zIDNoMmMxLjY1NyAwIDMtMS4zNDMgMy0zdi0zMWMwLTMuMzE0LTIuNjg2LTYtNi02eiIgZmlsbD0iIzM1Mzc0NCIvPjwvZz48Zz48Zz48cGF0aCBkPSJtMzUgMjR2LTE0YzAtMi4yMDktMS43OTEtNC00LTRoNmMyLjIwOSAwIDQgMS43OTEgNCA0djE0eiIgZmlsbD0iIzM1Mzc0NCIvPjwvZz48Zz48cGF0aCBkPSJtMzcgNGgtNmMtMy4zMTQgMC02IDIuNjg2LTYgNnYxNGg2di0xNGMwLTMuMzE0IDIuNjg2LTYgNi02eiIgZmlsbD0iIzU1NTI1YiIvPjwvZz48Zz48cGF0aCBkPSJtMzcgNGMtMy4zMTQgMC02IDIuNjg2LTYgNnYxNGgydi0xNGMwLTIuMjA5IDEuNzkxLTQgNC00czQgMS43OTEgNCA0djE0aDJ2LTE0YzAtMy4zMTQtMi42ODYtNi02LTZ6IiBmaWxsPSIjMzUzNzQ0Ii8+PC9nPjwvZz48Zz48Zz48cGF0aCBkPSJtNTEgNDF2LTMxYzAtMi4yMDktMS43OTEtNC00LTRoNmMyLjIwOSAwIDQgMS43OTEgNCA0djMxYzAgMS42NTctMS4zNDMgMy0zIDMtMS42NTcgMC0zLTEuMzQzLTMtM3oiIGZpbGw9IiMzNTM3NDQiLz48L2c+PGc+PHBhdGggZD0ibTUzIDRoLTZjLTMuMzE0IDAtNiAyLjY4Ni02IDZ2MTRoNnYtMTRjMC0zLjMxNCAyLjY4Ni02IDYtNnoiIGZpbGw9IiM1NTUyNWIiLz48L2c+PC9nPjxnPjxwYXRoIGQ9Im0zMyA4aC0xMGMtOC44MzcgMC0xNiA3LjE2My0xNiAxNnYzMmMwIDIuMjA5IDEuNzkxIDQgNCA0aDM0YzIuMjA5IDAgNC0xLjc5MSA0LTR2LTMyYzAtOC44MzctNy4xNjMtMTYtMTYtMTZ6IiBmaWxsPSIjNWM3NmIyIi8+PC9nPjxnPjxwYXRoIGQ9Im0yMyA4Yy04LjgzNyAwLTE2IDcuMTYzLTE2IDE2djMyYzAgMi4yMDkgMS43OTEgNCA0IDRoMjRjMi4yMDkgMCA0LTEuNzkxIDQtNHYtMzJjMC04LjgzNy03LjE2My0xNi0xNi0xNnoiIGZpbGw9IiM2ZmE0ZDgiLz48L2c+PGc+PHBhdGggZD0ibTMxIDMwaC0yMmMtMi4yMDkgMC00IDEuNzkxLTQgNHYxOGMwIDIuMjA5IDEuNzkxIDQgNCA0aDIyYzIuMjA5IDAgNC0xLjc5MSA0LTR2LTE4YzAtMi4yMDktMS43OTEtNC00LTR6IiBmaWxsPSIjZjY4ODIwIi8+PC9nPjxnPjxwYXRoIGQ9Im0yNSAzMGgtMTZjLTIuMjA5IDAtNCAxLjc5MS00IDR2MThjMCAyLjIwOSAxLjc5MSA0IDQgNGgxNmMyLjIwOSAwIDQtMS43OTEgNC00di0xOGMwLTIuMjA5LTEuNzkxLTQtNC00eiIgZmlsbD0iI2ZiYmUxOCIvPjwvZz48Zz48cGF0aCBkPSJtNSAzNmgyNHYyaC0yNHoiIGZpbGw9IiNmNjg4MjAiLz48L2c+PGc+PHBhdGggZD0ibTI5LjUgMjBoLTEzLjVjLS41NTIgMC0xLS40NDgtMS0xIDAtLjU1Mi40NDgtMSAxLTFoMTMuNWMuNTUyIDAgMSAuNDQ4IDEgMSAwIC41NTItLjQ0OCAxLTEgMXoiIGZpbGw9IiNkYmRlZTMiLz48L2c+PGc+PHBhdGggZD0ibTQzIDI0djNjMCAuNTUyLjQ0OCAxIDEgMSAuNTUyIDAgMS0uNDQ4IDEtMXYtM2MwLTguODM3LTcuMTYzLTE2LTE2LTE2aC0yYzguODM3IDAgMTYgNy4xNjMgMTYgMTZ6IiBmaWxsPSIjNTU1MjViIi8+PC9nPjwvZz48L3N2Zz4=" />
-                                <span class="card-text">This card has supporting text below as a natural lead-in to additional content.</span>
+                                {% if course.student != null %}
+                                <span class="card-text font-weight-bold ">
+                                    {{course.student.firstname}}
+                                {% else %}
+                                    {{"Thomas"}}
+                                </span>
+                                {% endif %}
                             </section>
-                            <section class="card-body">
+                            <section class="section my-4">
                                 <img class="calendar" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgaWQ9IkNpcmNsZV9HcmlkIiBkYXRhLW5hbWU9IkNpcmNsZSBHcmlkIj48Y2lyY2xlIGN4PSI2NCIgY3k9IjY0IiBmaWxsPSIjNjliMGVlIiByPSI2NCIvPjwvZz48ZyBpZD0iaWNvbiI+PHBhdGggZD0ibTEwNSA0Ni41OHY1Mi4zNzJhNC4xMzUgNC4xMzUgMCAwIDEgLTQuMTM1IDQuMTM1aC03My43M2E0LjEzNSA0LjEzNSAwIDAgMSAtNC4xMzUtNC4xMzV2LTUyLjM3MnoiIGZpbGw9IiNlZWVmZWUiLz48cGF0aCBkPSJtMjcgMjkuMThoNzRhNCA0IDAgMCAxIDQgNHYxMy40YTAgMCAwIDAgMSAwIDBoLTgyYTAgMCAwIDAgMSAwIDB2LTEzLjRhNCA0IDAgMCAxIDQtNHoiIGZpbGw9IiNlZjUyNjEiLz48Y2lyY2xlIGN4PSI4OS41ODMiIGN5PSIzNy44OCIgZmlsbD0iI2VlZWZlZSIgcj0iNC4xMzUiLz48cmVjdCBmaWxsPSIjNTc1YjZkIiBoZWlnaHQ9IjE2LjQwOSIgcng9IjIuMTU0IiB3aWR0aD0iNC41ODciIHg9Ijg3LjI5IiB5PSIyMi45MTQiLz48Y2lyY2xlIGN4PSIzOC40MTciIGN5PSIzNy44OCIgZmlsbD0iI2VlZWZlZSIgcj0iNC4xMzUiLz48cmVjdCBmaWxsPSIjNTc1YjZkIiBoZWlnaHQ9IjE2LjQwOSIgcng9IjIuMTU0IiB3aWR0aD0iNC41ODciIHg9IjM2LjEyNCIgeT0iMjIuOTE0Ii8+PGcgZmlsbD0iI2RiZDhkZCI+PHBhdGggZD0ibTQ0LjIzIDU0Ljg1M2g5LjIydjkuMjFoLTkuMjJ6Ii8+PHBhdGggZD0ibTU5LjM5IDU0Ljg1M2g5LjIydjkuMjFoLTkuMjJ6Ii8+PHBhdGggZD0ibTc0LjU1IDU0Ljg1M2g5LjIydjkuMjFoLTkuMjJ6Ii8+PHBhdGggZD0ibTg5LjcxMSA1NC44NTNoOS4yMnY5LjIxaC05LjIyeiIvPjxwYXRoIGQ9Im0yOS4wNjkgNzAuMjI4aDkuMjJ2OS4yMWgtOS4yMnoiLz48cGF0aCBkPSJtNDQuMjMgNzAuMjI4aDkuMjJ2OS4yMWgtOS4yMnoiLz48cGF0aCBkPSJtNTkuMzkgNzAuMjI4aDkuMjJ2OS4yMWgtOS4yMnoiLz48L2c+PHBhdGggZD0ibTc0LjU1IDcwLjIyOGg5LjIydjkuMjFoLTkuMjJ6IiBmaWxsPSIjMmNiZmFlIi8+PHBhdGggZD0ibTg5LjcxMSA3MC4yMjhoOS4yMnY5LjIxaC05LjIyeiIgZmlsbD0iI2RiZDhkZCIvPjxwYXRoIGQ9Im0yOS4wNjkgODUuNjA0aDkuMjJ2OS4yMWgtOS4yMnoiIGZpbGw9IiNkYmQ4ZGQiLz48cGF0aCBkPSJtNDQuMjMgODUuNjA0aDkuMjJ2OS4yMWgtOS4yMnoiIGZpbGw9IiNkYmQ4ZGQiLz48cGF0aCBkPSJtNTkuMzkgODUuNjA0aDkuMjJ2OS4yMWgtOS4yMnoiIGZpbGw9IiNkYmQ4ZGQiLz48cGF0aCBkPSJtNzQuNTUgODUuNjA0aDkuMjJ2OS4yMWgtOS4yMnoiIGZpbGw9IiNkYmQ4ZGQiLz48L2c+PC9zdmc+" />
-                                <span class="card-text">This card has supporting text below as a natural lead-in to additional content.</span>
+                                <span class="card-subtitle font-weight-bold">Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche</span>
+                                <p class="text-muted">
+                                    A partir de {{course.startingDay | date(" D d F")}}
+                                </p>
                             </section>
-                            <section class="card-body">
+                            <section class="my-4">
                                 <img class="clock" src="data:image/svg+xml;base64,PHN2ZyBpZD0iQ2FwYV8xIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTIgNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGc+PHBhdGggZD0ibTI1NiAwLTEyOCAyNTYgMTI4IDI1NmMxNDEuMzg1IDAgMjU2LTExNC42MTUgMjU2LTI1NnMtMTE0LjYxNS0yNTYtMjU2LTI1NnoiIGZpbGw9IiMyOGFiZmEiLz48cGF0aCBkPSJtMCAyNTZjMCAxNDEuMzg1IDExNC42MTUgMjU2IDI1NiAyNTZ2LTUxMmMtMTQxLjM4NSAwLTI1NiAxMTQuNjE1LTI1NiAyNTZ6IiBmaWxsPSIjMTRjZmZmIi8+PHBhdGggZD0ibTI1NiA2MC05OCAxOTYgOTggMTk2YzEwOC4yNDggMCAxOTYtODcuNzUyIDE5Ni0xOTZzLTg3Ljc1Mi0xOTYtMTk2LTE5NnoiIGZpbGw9IiNjNGYzZmYiLz48cGF0aCBkPSJtNjAgMjU2YzAgMTA4LjI0OCA4Ny43NTIgMTk2IDE5NiAxOTZ2LTM5MmMtMTA4LjI0OCAwLTE5NiA4Ny43NTItMTk2IDE5NnoiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJtMjk4LjQyNiAyNzcuMjEzLTQyLjQyNi00Mi40MjZoLTIwbDIwIDQyLjQyNiAyMS4yMTMgMjEuMjEzeiIgZmlsbD0iIzM0MGQ2NiIvPjxwYXRoIGQ9Im0xNzAuNzk0IDE0OS41ODEtMjEuMjEzIDIxLjIxMyAxMDYuNDE5IDEwNi40MTl2LTQyLjQyNnoiIGZpbGw9IiMzNzNlOWYiLz48cGF0aCBkPSJtMzQxLjU2MSAxNDkuMjI3LTg1LjU2MSA4NS41Ni0yMCA0Mi40MjZoMjBsMTA2Ljc3My0xMDYuNzc0eiIgZmlsbD0iIzM3M2U5ZiIvPjxwYXRoIGQ9Im0yMTMuNTc0IDI3Ny4yMTMgMjEuMjEzIDIxLjIxMyAyMS4yMTMtMjEuMjEzdi00Mi40MjZ6IiBmaWxsPSIjMzg1N2JjIi8+PHBhdGggZD0ibTI3MSA5MGgtMTVsLTEwIDE1IDEwIDE1aDE1eiIgZmlsbD0iIzM0MGQ2NiIvPjxwYXRoIGQ9Im0yNDEgOTBoMTV2MzBoLTE1eiIgZmlsbD0iIzM3M2U5ZiIvPjxwYXRoIGQ9Im0yNzEgMzkyaC0xNWwtMTAgMTUgMTAgMTVoMTV6IiBmaWxsPSIjMzQwZDY2Ii8+PHBhdGggZD0ibTI0MSAzOTJoMTV2MzBoLTE1eiIgZmlsbD0iIzM3M2U5ZiIvPjxwYXRoIGQ9Im05MCAyNDFoMzB2MzBoLTMweiIgZmlsbD0iIzM3M2U5ZiIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMSAxIDAgLTE1MSAzNjEpIi8+PHBhdGggZD0ibTM5MiAyNDFoMzB2MzBoLTMweiIgZmlsbD0iIzM0MGQ2NiIgdHJhbnNmb3JtPSJtYXRyaXgoMCAtMSAxIDAgMTUxIDY2MykiLz48L2c+PC9zdmc+" />
-                                <span class="card-text"></span>
+                                <span class="card-subtitle font-weight-bold">1h30/jour</span>
+                                <p class="text-muted">A partir de {{course.startingDay|date("H:i")}}</p>
                             </section>
-                            <section class="card-body">
+                            <section class="my-4">
                                 <img class="teacher" src="data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNTEwIDUxMCIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCA1MTAgNTEwIiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGlkPSJYTUxJRF80MjI5XyI+PHBhdGggaWQ9IlhNTElEXzQyNDBfIiBkPSJtMTM1IDI1Ny4wMS02MCAzNC4yODV2MzguNzA1aDYweiIvPjxwYXRoIGlkPSJYTUxJRF80MjU2XyIgZD0ibTM3NSAzMzBoNjB2LTM4LjcwNWwtNjAtMzQuMjg1eiIvPjxwYXRoIGlkPSJYTUxJRF80MjYyXyIgZD0ibTE2NSAzMzBoMTVjMjkuMzUzIDAgNTUuOTI3IDEyLjExMyA3NSAzMS41OTYgMTkuMDczLTE5LjQ4MyA0NS42NDYtMzEuNTk2IDc1LTMxLjU5NmgxNXYtODAuOTk1Yy0xOC4zODYgMzAuNTI2LTUxLjg0MiA1MC45OTUtOTAgNTAuOTk1cy03MS42MTQtMjAuNDY5LTkwLTUwLjk5NXoiLz48cGF0aCBpZD0iWE1MSURfNDM3N18iIGQ9Im0wIDQzNWg1MTB2MzBoLTUxMHoiLz48cGF0aCBpZD0iWE1MSURfNDM4MF8iIGQ9Im00ODAgMzYwaC0xNTBjLTMwLjc1MiAwLTU3LjE2NyAxOC41MTYtNjguNzQyIDQ1aDIxOC43NDJ6Ii8+PHBhdGggaWQ9IlhNTElEXzQzODFfIiBkPSJtMTgwIDM2MGgtMTUwdjQ1aDIxOC43NDFjLTExLjU3NS0yNi40ODQtMzcuOTg5LTQ1LTY4Ljc0MS00NXoiLz48cGF0aCBpZD0iWE1MSURfNDM4Ml8iIGQ9Im0yNTUgMjcwYzQxLjQyMSAwIDc1LTMzLjU3OCA3NS03NXYtNDVoLTE1MHY0NWMwIDQxLjQyMiAzMy41NzkgNzUgNzUgNzV6Ii8+PHBhdGggaWQ9IlhNTElEXzQzODNfIiBkPSJtMTgwIDEyMGgxNTB2LTQ1aDQ1djc1aDMwdi0xMDVoLTI4NXYzMGg2MHoiLz48L2c+PC9zdmc+" />
-                                <span class="card-text"></span>
+                                <span class="card-text">
+                                    {{course.teacher.firstname}}
+                                </span>
                             </section>
                             <section class="text-center">
-							    <a href="" class="btn btn-primary ">Détails</a>
+							    <a href="" class="btn btn--backgroundcolor btn--textcolor btn-block font-weight-bold">Détails</a>
                             </section>
 						</div>
 					</div>

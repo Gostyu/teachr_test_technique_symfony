@@ -31,9 +31,8 @@ class TeachrAppFixtures extends Fixture
             }
     }
     public function createCourses(ObjectManager $manager){
-        $faker = \Faker\Factory::create('fr_FR'); 
-        $areas = ["cours de mathématiques", "cours de français","cours de philosophie"
-        ,"cours d'histoire","cours de sport","cours d'anglais","cours d'espagnol"];
+        $areas = ["Cours de mathématiques", "Cours de français","Cours de philosophie"
+        ,"Cours d'histoire","Cours de sport","Cours d'anglais","Cours d'espagnol"];
         for($i=0; $i<count($areas); $i++){
             $course = new Course();
             $course->setName($areas[$i])
@@ -42,9 +41,7 @@ class TeachrAppFixtures extends Fixture
             $manager->persist($course);
             $this->createStudents($course,$manager);
             $this->createTeachers($course,$manager);
-
         }
-
     }
     private function createTeachers(Course $course, ObjectManager $manager){
         $faker = \Faker\Factory::create('fr_FR'); 
