@@ -13,3 +13,16 @@ import './styles/app.css';
 
 console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
+
+const items = document.getElementById("list").getElementsByClassName("nav-item");
+
+for(let i=0; i<items.length;i++){
+    items[i].addEventListener('click',function(){
+        var current = document.getElementsByClassName("active");
+        current[0].classList.replace("active","");
+       this.classList.add("active");
+    })
+
+}
+
+

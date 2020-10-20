@@ -6,7 +6,7 @@
 			<div class="row">
 				{% for course in courses %}
 					<div class="card-deck col-md-6">
-						<div class="card my-3">
+						<div class="card my-3 mx-5">
 							<div class="card-body">
 								<h5 class="card-title font-weight-bold">{{course.name}}</h5>
 								<h6 class="card-subtitle text-muted">
@@ -24,7 +24,7 @@
 										<span class="card-text font-weight-bold ">
 											{{course.student.firstname}}
 										{% else %}
-											{{"Thomas"}}
+											{{"Aucun étudiant"}}
 										</span>
 									{% endif %}
 								</section>

@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<div class="row">
+		<div class="col">
+			<h1 class="text-center">{{"Prochain cours : Lundi 23 décembre "}}</h1>
+            <div class="row">
+				{% for course in courses %} 
+					<div class="card-deck col-md-6">
+						<div class="card my-3 mx-5">
+							<div class="card-body">
+                                <img src="https://place-hold.it/235x180" alt="a blank image"/>
+								<h5 class="card-title font-weight-bold">{{course.name}}</h5>
+								<section class="">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam animi aperiam facere, ab quisquam voluptas saepe officiis quasi minus nesciunt laborum esse quae expedita ipsum, corporis deserunt numquam iusto eveniet
+                                    Repudiandae quaerat assumenda provident tempora eaque voluptate? Doloribus aut, magnam hic ipsa pariatur cumque, vero voluptatibus, reiciendis amet nesciunt nemo quibusdam! Quis, adipisci dignissimos. Maiores veniam ipsa quisquam ea voluptas?
+                                    Esse repellendus distinctio sit cupiditate! Ipsa sint cupiditate debitis cum, magnam officiis repellendus quae quos distinctio soluta accusantium placeat animi laborum eos cumque sunt? Recusandae deserunt omnis assumenda sapiente autem?</p>
+                                </section>
+								<section class="text-center">
+									<a href="" class="btn btn-primary">Réserver</a>
+								</section>
+							</div>
+						</div>
+					</div>
+				{% endfor %} 
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
