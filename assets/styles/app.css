@@ -1,0 +1,7 @@
+body {
+    background-color: lightgray;
+}
+.schoolbag,.calendar,.clock,.teacher{
+    width :34px;
+    height:34px;
+}
