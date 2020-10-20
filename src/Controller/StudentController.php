@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\CourseRepository;
+use App\Repository\StudentRepository;
 class StudentController extends AbstractController
 {
     /**
@@ -19,17 +19,18 @@ class StudentController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function home(CourseRepository $repo){
-        $courses=$repo->findBy(
-            array('is_booked' => false)
-        );
-        return $this->render('home.html.twig',['courses'=>$courses]);
+    public function home(){
+        
+        return $this->render('home.html.twig');
     }
+
     /**
      * @Route("/mes_cours",name="mes_cours")
      */
-    public function myCourses(){
-        return $this->render('student/myCourses.html.twig');
+    public function myCourses(StudentRepository $repo){
+        $student=$repo->findOneByFirstname("Thomas");
+        $courses = $student->getCourses();
+        return $this->render('student/myCourses.html.twig',['courses'=>$courses]);
     }
     /**
      * @Route("/mon_profil", name="mon_profil")
