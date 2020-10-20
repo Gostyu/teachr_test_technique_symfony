@@ -4,3 +4,5 @@
 - Symfony
 - Bootstrap
 - HTML,CSS
+# Libraries 
+- Faker
